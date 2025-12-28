@@ -17,10 +17,32 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
-//app middleware
-app.use(cors());
+// CORS configuration for production
+const allowedOrigins = [
+    'http://localhost:5173',
+    process.env.FRONTEND_URL,
+    process.env.FRONTEND_URL_2  // In case you have multiple frontend URLs
+].filter(Boolean);
+
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) === -1) {
+            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    },
+    credentials: true
+}));
+
 app.use(express.json());
 app.use(clerkMiddleware());
+
+// Connect to database
+connectDb();
 
 // Routes
 app.use("/api/inngest", serve({ client: inngest, functions }));
@@ -35,7 +57,27 @@ app.get('/api/health', (req, res) => {
     res.json({ success: true, message: 'Server is running!' });
 });
 
-app.listen(port, async () => {
-    await connectDb();
-    console.log(`Server is running on port ${port}`);
+// Root endpoint
+app.get('/', (req, res) => {
+    res.json({
+        success: true,
+        message: 'ShowXpress API',
+        endpoints: {
+            health: '/api/health',
+            shows: '/api/show',
+            bookings: '/api/booking',
+            admin: '/api/admin',
+            payment: '/api/payment'
+        }
+    });
 });
+
+// For Vercel serverless
+export default app;
+
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    });
+}
