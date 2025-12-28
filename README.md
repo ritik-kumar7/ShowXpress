@@ -287,8 +287,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Ritik Kumar**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- GitHub: [@ritik-kumar7](https://github.com/ritik-kumar7)
+- LinkedIn: [@ritik-kumar7](https://linkedin.com/in/ritik-kumar7)
 
 ## 🙏 Acknowledgments
 
