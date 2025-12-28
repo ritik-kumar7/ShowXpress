@@ -20,8 +20,10 @@ const port = process.env.PORT || 4000;
 // CORS configuration for production
 const allowedOrigins = [
     'http://localhost:5173',
+
     process.env.FRONTEND_URL,
-    process.env.FRONTEND_URL_2  // In case you have multiple frontend URLs
+    process.env.FRONTEND_URL_2,
+    'https://show-xpress9.vercel.app'  // Production frontend URL
 ].filter(Boolean);
 
 app.use(cors({
@@ -30,12 +32,16 @@ app.use(cors({
         if (!origin) return callback(null, true);
 
         if (allowedOrigins.indexOf(origin) === -1) {
+            console.log('CORS blocked origin:', origin);
+            console.log('Allowed origins:', allowedOrigins);
             const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
             return callback(new Error(msg), false);
         }
         return callback(null, true);
     },
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
