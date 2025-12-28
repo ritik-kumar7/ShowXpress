@@ -1,0 +1,209 @@
+/* ===== Movie Card Styles ===== */
+.movie-card {
+    background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(18, 18, 26, 0.95));
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(248, 69, 101, 0.4);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(248, 69, 101, 0.15);
+}
+
+/* Movie Card Image */
+.movie-card-image {
+    position: relative;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+}
+
+.movie-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.movie-card:hover .movie-card-image img {
+    transform: scale(1.08);
+    filter: brightness(0.7);
+}
+
+/* Movie Card Overlay */
+.movie-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(10, 10, 15, 0.95) 0%,
+            rgba(10, 10, 15, 0.5) 40%,
+            transparent 70%);
+    opacity: 0.8;
+}
+
+/* Play Button */
+.movie-card-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(248, 69, 101, 0.9), rgba(214, 56, 84, 0.9));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(248, 69, 101, 0.5);
+}
+
+.movie-card:hover .movie-card-play {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.movie-card-play:hover {
+    box-shadow: 0 0 50px rgba(248, 69, 101, 0.7);
+}
+
+/* Rating Badge */
+.movie-card-rating {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.6rem;
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.movie-card:hover .movie-card-rating {
+    background: linear-gradient(135deg, rgba(248, 69, 101, 0.9), rgba(214, 56, 84, 0.9));
+    border-color: transparent;
+}
+
+/* Card Content */
+.movie-card-content {
+    padding: 1.25rem;
+    position: relative;
+}
+
+.movie-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.movie-card:hover .movie-card-title {
+    color: #f84565;
+}
+
+.movie-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+}
+
+.movie-card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Book Button */
+.movie-card-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f84565 0%, #d63854 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(248, 69, 101, 0.3);
+}
+
+.movie-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(248, 69, 101, 0.4);
+}
+
+/* ===== Section Styles ===== */
+.section-header {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+/* Responsive Movie Card */
+@media (max-width: 768px) {
+    .movie-card-content {
+        padding: 1rem;
+    }
+
+    .movie-card-title {
+        font-size: 0.9rem;
+    }
+
+    .movie-card-meta {
+        font-size: 0.75rem;
+    }
+
+    .movie-card-btn {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .movie-card-play {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Section Center Button (Explore All Movies) */
+.text-center.mt-12 {
+    margin-top: 2.5rem !important;
+    padding-top: 1rem;
+}

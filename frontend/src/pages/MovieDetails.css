@@ -1,0 +1,301 @@
+/* ===== Show Times Section ===== */
+.showtimes-section {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.8) 0%, rgba(18, 18, 26, 0.95) 50%, rgba(10, 10, 15, 0.9) 100%);
+    position: relative;
+}
+
+.showtimes-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(248, 69, 101, 0.3), transparent);
+}
+
+.showtimes-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.showtimes-header-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f84565 0%, #d63854 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(248, 69, 101, 0.3);
+}
+
+.showtimes-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.showtimes-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.showtimes-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Date Selector */
+.date-selector {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+}
+
+.date-selector::-webkit-scrollbar {
+    display: none;
+}
+
+.date-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.date-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(248, 69, 101, 0.3);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.date-btn.active {
+    background: linear-gradient(135deg, #f84565 0%, #d63854 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 8px 25px rgba(248, 69, 101, 0.35);
+}
+
+/* Showtime Cards Grid */
+.showtime-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+/* Individual Showtime Card */
+.showtime-card {
+    background: linear-gradient(145deg, rgba(30, 30, 50, 0.9), rgba(20, 20, 35, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.showtime-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f84565, #ff6b8a, #f84565);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.showtime-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(248, 69, 101, 0.3);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(248, 69, 101, 0.1);
+}
+
+.showtime-card:hover::before {
+    opacity: 1;
+}
+
+.showtime-card.sold-out {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.showtime-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.showtime-time-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.showtime-time {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.showtime-theater {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.showtime-price-block {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.showtime-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #f84565;
+}
+
+.showtime-price-label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+.showtime-seats-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.seats-count {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.seats-count.high {
+    color: #4ade80;
+}
+
+.seats-count.low {
+    color: #fbbf24;
+}
+
+.seats-count.none {
+    color: #f87171;
+}
+
+.showtime-book-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f84565 0%, #d63854 100%);
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(248, 69, 101, 0.3);
+}
+
+.showtime-book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(248, 69, 101, 0.4);
+}
+
+.showtime-book-btn.disabled {
+    background: rgba(100, 100, 100, 0.3);
+    color: rgba(255, 255, 255, 0.4);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.showtime-book-btn.disabled:hover {
+    transform: none;
+}
+
+/* No Shows Card */
+.no-shows-card {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(145deg, rgba(30, 30, 50, 0.6), rgba(20, 20, 35, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+}
+
+.no-shows-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.no-shows-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.no-shows-text {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .showtimes-section {
+        padding: 2.5rem 0;
+    }
+
+    .showtime-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .date-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .showtime-time {
+        font-size: 1.5rem;
+    }
+
+    .showtime-price {
+        font-size: 1.25rem;
+    }
+}

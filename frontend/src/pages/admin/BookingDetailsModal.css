@@ -1,0 +1,122 @@
+/* ===== Booking Details Modal Styles ===== */
+.modal-content {
+  padding: 0 !important;
+}
+
+.modal-content .p-10 {
+  padding: 3rem !important;
+}
+
+.modal-content .space-y-10>*+* {
+  margin-top: 3rem !important;
+}
+
+.modal-content .grid.gap-4 {
+  gap: 2rem !important;
+}
+
+.modal-content .rounded-2xl.p-5 {
+  padding: 2rem !important;
+}
+
+.modal-content .rounded-2xl.p-6 {
+  padding: 2.5rem !important;
+}
+
+.modal-content .mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.modal-content .mb-2 {
+  margin-bottom: 1rem !important;
+}
+
+.modal-content .gap-3 {
+  gap: 1rem !important;
+}
+
+.modal-content .gap-5 {
+  gap: 1.5rem !important;
+}
+
+.modal-content .text-sm {
+  font-size: 1rem !important;
+}
+
+.modal-content .text-lg {
+  font-size: 1.25rem !important;
+}
+
+.modal-content .text-2xl {
+  font-size: 2rem !important;
+}
+
+.modal-content .text-3xl {
+  font-size: 2.5rem !important;
+  line-height: 1.2 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Customer Details Section */
+.modal-content .bg-gradient-to-r {
+  padding: 2.5rem !important;
+  margin: 3rem 0 !important;
+}
+
+/* Show Details Grid */
+.modal-content .grid.grid-cols-1.sm\\:grid-cols-2 {
+  gap: 2rem !important;
+  margin: 3rem 0 !important;
+}
+
+/* Seats Section */
+.modal-content .bg-gradient-to-r.from-white\\ {
+  padding: 2.5rem !important;
+  margin: 3rem 0 !important;
+}
+
+/* Status Badge */
+.modal-content .flex.items-center.justify-between:first-child {
+  margin-bottom: 3rem !important;
+}
+
+/* Booking Reference */
+.modal-content .text-center.pt-4 {
+  padding-top: 3rem !important;
+  margin-top: 3rem !important;
+}
+
+/* Header spacing */
+.modal-content .absolute.bottom-8 {
+  bottom: 2rem !important;
+  left: 2rem !important;
+  right: 2rem !important;
+}
+
+.modal-content .absolute.bottom-8 .flex-1 h2 {
+  margin-bottom: 1rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modal-content .p-10 {
+    padding: 2rem !important;
+  }
+
+  .modal-content .space-y-10>*+* {
+    margin-top: 2rem !important;
+  }
+
+  .modal-content .rounded-2xl.p-5,
+  .modal-content .rounded-2xl.p-6 {
+    padding: 1.5rem !important;
+  }
+
+  .modal-content .grid.gap-4 {
+    gap: 1.5rem !important;
+  }
+
+  .modal-content .text-3xl {
+    font-size: 2rem !important;
+  }
+}
